@@ -15,11 +15,16 @@ EX = Namespace("http://test_mission_faqhanahotspots.org/")
 # Initialize an RDF graph
 g = Graph()
 
+# Instantiate LLMGraphTransformer
+llm_transformer = LLMGraphTransformer(
+    llm="<Add your LLM object>",  #TODO 
+)
+
 
 # Function to load PDF documents
 def load_documents():
     documents = []
-    file_path = "<TODO: Your PDF Path>"
+    file_path = "<Your PDF Path>"  #TODO 
 
     try:
         loader = PyPDFLoader(file_path)
@@ -88,11 +93,6 @@ def process_documents(llm_transformer):
 def safe_uri(string):
     return URIRef(EX[string.replace(" ", "_").replace("/", "_")])
 
-
-# Instantiate LLMGraphTransformer
-llm_transformer = LLMGraphTransformer(
-    llm=client,
-)
 
 # Process the documents and get graph documents
 graph_documents = process_documents(llm_transformer)
