@@ -35,3 +35,28 @@ try:
 
 finally:
     cursor.close()
+
+# Validate by printing triplets
+from rdflib import URIRef
+
+def extract_local_part(uri):
+    """Extract the local part of a URI."""
+    # Convert to string, split by # or /, and take the last segment
+    uri_str = str(uri)
+    if '#' in uri_str:
+        return uri_str.split('#')[-1]
+    else:
+        return uri_str.split('/')[-1]
+
+def arrow_style_print_rdf_triples_no_ns(rdf_triples):
+    """Print RDF triples without namespaces in 'subject -> predicate -> object' format."""
+    for idx, (subject, predicate, obj) in enumerate(rdf_triples, start=1):
+        subj = extract_local_part(subject)
+        pred = extract_local_part(predicate)
+        objt = extract_local_part(obj)
+
+        print(f"Triple {idx}: {subj} -> {pred} -> {objt}")
+        print("-" * 40)
+
+
+arrow_style_print_rdf_triples_no_ns(rdf_triples)
