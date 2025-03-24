@@ -1,4 +1,15 @@
 from langchain_core.prompts import PromptTemplate
+from typing_extensions import TypedDict, Annotated
+from hdbcli import dbapi
+
+# Add your HANA credentials here TODO / Use the connection object you created to ingest triplets
+conn = dbapi.connect(
+    user = "<username>",
+    password = "<password>",
+    address = "<instance id>", 
+    port = 000,
+)
+
 namespace = "<Your namespace>" #TODO
 
 #give example in template and try different LLMs 
@@ -24,8 +35,6 @@ SPARQL Query: SPARQL Query to run, including s-p-o structure
 
 
 '''
-
-from typing_extensions import TypedDict, Annotated
 
 class State(TypedDict):
     question: str
