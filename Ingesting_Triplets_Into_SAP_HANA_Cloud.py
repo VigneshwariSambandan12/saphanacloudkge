@@ -1,6 +1,7 @@
 
 from hdbcli import dbapi
 
+# Add your HANA credentials here TODO
 conn = dbapi.connect(
     user = "<username>",
     password = "<password>",
