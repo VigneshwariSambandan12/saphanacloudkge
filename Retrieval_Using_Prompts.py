@@ -2,7 +2,7 @@ from langchain_core.prompts import PromptTemplate
 from typing_extensions import TypedDict, Annotated
 from hdbcli import dbapi
 
-# Add your HANA credentials here TODO / Use the connection object you created to ingest triplets
+# Add your HANA credentials here TODO / Use the connection object you created to ingest triples
 conn = dbapi.connect(
     user = "<username>",
     password = "<password>",
@@ -25,7 +25,7 @@ WHERE {{
     )
 }}
 
-Retrieve only triplets beginning with f{namespace} 
+Retrieve only triples beginning with f{namespace} 
 Use the following format:
 Question: {input} 
 S: Subject to look for in the RDF graph
@@ -88,7 +88,7 @@ def execute_sparql(query_response):
 def summarize_info(question, query_response): 
     prompt = """Answer the user question below given the following relational information in XML format. Use as much as the query response as possible to give a full, detailed explanation. Interpret the URI and predicate information using context. Don't use phrases like 'the entity identified by the URI,' just say what the entity is. 
     Also make sure the output is readable in a format that can be display through an HTML file, add appropriate formatting.
-    Please remove unnecessary information. Do not add information about the triplets. Do not add the source of the data.
+    Please remove unnecessary information. Do not add information about the triples. Do not add the source of the data.
     Do not include details about what they are identified as or what kind of entity they are unless asked. Do not add any suggestions unless explicitly asked. Simply give a crisp and direct answer to what has been asked!
     If you do not have an answer, please say so. DO NOT HALLUCINATE!
     User Question: {question}
