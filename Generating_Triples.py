@@ -125,5 +125,5 @@ for s, p, o in g:
     rdf_triples.append((str(s), str(p), str(o)))
 
 
-#Optionally - print the triplets to validate them
+#Optionally - print the triples to validate them
 print(rdf_triples)
