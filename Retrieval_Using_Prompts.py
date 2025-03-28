@@ -2,39 +2,32 @@ from langchain_core.prompts import PromptTemplate
 from typing_extensions import TypedDict, Annotated
 from hdbcli import dbapi
 
-# Add your HANA credentials here TODO / Use the connection object you created to ingest triples
-conn = dbapi.connect(
-    user = "<username>",
-    password = "<password>",
-    address = "<instance id>", 
-    port = 000,
-)
 
-namespace = "<Your namespace>" #TODO
+namespace = "http://test_mission_faqhanahotspots.org/" #TODO Add your own namespace here
 
 #give example in template and try different LLMs 
 template = '''Given an input question, your task is to create a syntactically correct SPARQL query to retrieve information from an RDF graph. The graph may contain variations in spacing, underscores, dashes, capitalization, reversed relationships, and word order. You must account for these variations using the `REGEX()` function in SPARQL. In the RDF graph, subjects are represented as "s", objects are represented as "o", and predicates are represented as "p". Account for underscores. 
 
-Example Question: "Who was Marie Curie?"
+Example Question: "What are SAP HANA Hotspots"
 Example SPARQL Query: SELECT ?s ?p ?o
 WHERE {{
     ?s ?p ?o .
     FILTER(
-        REGEX(str(?s), "Marie_Curie", "i") ||
-        REGEX(str(?o), "Marie_Curie", "i")
+        REGEX(str(?s), "SAP_HANA_Hotspots", "i") ||
+        REGEX(str(?o), "SAP_HANA_Hotspots", "i")
     )
 }}
 
-Retrieve only triples beginning with f{namespace} 
+Retrieve only triples beginning with "http://test_mission_faqhanahotspots.org/ " #TODO Add your own namespace here
 Use the following format:
-Question: {input} 
+Question: f{input} 
 S: Subject to look for in the RDF graph
 P: Predicate to look for in the RDF graph
 O: Object to look for in the RDF graph
 SPARQL Query: SPARQL Query to run, including s-p-o structure
-
-
 '''
+
+query_prompt_template = PromptTemplate.from_template(template)
 
 class State(TypedDict):
     question: str
@@ -55,14 +48,14 @@ def write_query(state: State):
             "input": state["question"],
         }
     )
-    structured_llm = anthropic.with_structured_output(QueryOutput)
+    structured_llm = anthropic.with_structured_output(QueryOutput) #TODO this is the LLM previously set up
     result = structured_llm.invoke(prompt)
     print(result["query"])
     return {"query": result["query"]}
 
 def execute_sparql(query_response):
     print()
-    cursor = conn.cursor()
+    cursor = conn.cursor() #TODO this is the connection to the database from the previous step i.e. ingesting triples
     try:
         # Execute 
         resp = cursor.callproc('SPARQL_EXECUTE', (query_response["query"], 'Metadata headers describing Input and/or Output', '?', None))
@@ -111,7 +104,7 @@ def summarize_info(question, query_response):
     print(final_answer["final_answer"])
 
 # Retrieval begin here
-question = "<Your question>" #TODO : Add your question here
+question = "<add your question here>?" #TODO : Add your question here
 sparql = write_query({"question": question})
 response = execute_sparql(sparql)
 summarize_info(question, response)
