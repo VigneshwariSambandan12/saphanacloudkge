@@ -33,7 +33,7 @@ def setup():
     conn = dbapi.connect(
         user="HANA_ADMIN", #TODO Add your credentials
         password="HANA_ADMIN_PW",#TODO Add your credentials
-        address='122ac990-1ac9-4dd0-9f92-94ce5bed0874.hna1.canary-eu10.hanacloud.ondemand.com',
+        address='instance',#TODO Add your credentials
         port=443,
     )
 
