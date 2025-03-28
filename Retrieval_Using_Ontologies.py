@@ -22,7 +22,11 @@ def setup():
 
     
     anthropic = ChatBedrock(
-        model_id="anthropic.claude-3-5-sonnet-20240620-v1:0"
+        model_id="anthropic.claude-3-5-sonnet-20240620-v1:0",
+        aws_access_key_id="AWS_ACCESS_KEY_ID", #TODO
+        aws_secret_access_key="AWS_SECRET_ACCESS_KEY",#TODO
+        region_name="AWS_DEFAULT_REGION" #TODO
+
         
     )
 
