@@ -118,8 +118,10 @@ def generate_ttl():
            Literal("SBOOK.MANDT = SCUSTOM.MANDT AND SBOOK.CUSTOMID = SCUSTOM.ID")))
 
     # Save to file
-    g.serialize("flight_database_kg.ttl", format="turtle")
-    print("TTL file generated successfully")
+    graph_string = g.serialize(format="turtle")
+
+    with open('/content/drive/<your_file_name>.ttl', 'w') as file: # TODO add the path to your file
+      file.write(graph_string)
 
 
 #Create ontologies
