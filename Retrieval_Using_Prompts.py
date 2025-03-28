@@ -2,8 +2,12 @@ from langchain_core.prompts import PromptTemplate
 from typing_extensions import TypedDict, Annotated
 from hdbcli import dbapi
 
-
-namespace = "http://test_mission_faqhanahotspots.org/" #TODO Add your own namespace here
+conn = dbapi.connect(
+    user = "<username>", #TODO: Add username
+    password = "<password>", #TODO: Add password
+    address = '122ac990-1ac9-4dd0-9f92-94ce5bed0874.hna1.canary-eu10.hanacloud.ondemand.com', #New instance after crash
+    port = 443,
+)
 
 #give example in template and try different LLMs 
 template = '''Given an input question, your task is to create a syntactically correct SPARQL query to retrieve information from an RDF graph. The graph may contain variations in spacing, underscores, dashes, capitalization, reversed relationships, and word order. You must account for these variations using the `REGEX()` function in SPARQL. In the RDF graph, subjects are represented as "s", objects are represented as "o", and predicates are represented as "p". Account for underscores. 
