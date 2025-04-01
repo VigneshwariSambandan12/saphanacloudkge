@@ -77,7 +77,7 @@ def write_query(state: State):
             "input": state["question"],
         }
     )
-    # structured_llm = llm.with_structured_output(QueryOutput) #TODO this is the LLM previously set up
+ 
     result = llm.invoke(prompt)
     print(result.content)
     return {"query": result.content}
@@ -129,6 +129,24 @@ def summarize_info(question, query_response):
         """Generated SPARQL query."""
         final_answer: Annotated[str, ..., "Answer to user's question."]
 
-    # translate_llm = llm.with_structured_output(QuestionAnswer)
     final_answer = llm.invoke(prompt_input)
     print(final_answer.content)
+
+#==========SAMPLE QUESTIONS==============#
+#Question 1
+question1 = "What is SAP HANA HotSpots Cloud?" 
+sparql1 = write_query({"question": question1})
+response1 = execute_sparql(sparql1)
+summarize_info(question1, response1)
+
+# Question 2
+question2 = "What is hscmd?"
+sparql2 = write_query({"question": question2})
+response2 = execute_sparql(sparql2)
+summarize_info(question2, response2)
+
+# Question 3
+question3 = "What is the SAP HANA KPI collector?"
+sparql3 = write_query({"question": question3})
+response3 = execute_sparql(sparql3)
+summarize_info(question3, response3)
