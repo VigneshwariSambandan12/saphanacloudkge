@@ -204,7 +204,7 @@ for s, p, o in g:
 
 # Print all generated RDF triples for verification
 print(rdf_triples)
-
+"""
 # Create a list to store formatted triples for SPARQL insertion
 triples = []
 
@@ -237,3 +237,4 @@ try:
 finally:
     # Ensure cursor is closed to free resources
     cursor.close()
+"""
