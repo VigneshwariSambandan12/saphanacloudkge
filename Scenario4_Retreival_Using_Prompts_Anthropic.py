@@ -112,8 +112,27 @@ conn = dbapi.connect(
 )
 
 # Define template for SPARQL query generation
-template = '''Given an input question, your task is to create a syntactically correct SPARQL query...'''
-[Rest of the template string...]
+#give example in template and try different LLMs
+template = '''Given an input question, your task is to create a syntactically correct SPARQL query to retrieve information from an RDF graph. The graph may contain variations in spacing, underscores, dashes, capitalization, reversed relationships, and word order. You must account for these variations using the `REGEX()` function in SPARQL. In the RDF graph, subjects are represented as "s", objects are represented as "o", and predicates are represented as "p". Account for underscores.
+
+Example Question: "What are SAP HANA Hotspots"
+Example SPARQL Query: SELECT ?s ?p ?o
+WHERE {{
+    ?s ?p ?o .
+    FILTER(
+        REGEX(str(?s), "SAP_HANA_Hotspots", "i") ||
+        REGEX(str(?o), "SAP_HANA_Hotspots", "i")
+    )
+}}
+
+Retrieve only triples beginning with "http://new_test_mission_faqhanahotspots.org/"
+Use the following format:
+Question: f{input}
+S: Subject to look for in the RDF graph
+P: Predicate to look for in the RDF graph
+O: Object to look for in the RDF graph
+SPARQL Query: SPARQL Query to run, including s-p-o structure
+'''
 
 # Create prompt template from the template string
 query_prompt_template = PromptTemplate.from_template(template)
@@ -185,9 +204,14 @@ def execute_sparql(query_response):
 # Function to summarize query results into natural language
 def summarize_info(question, query_response):
     # Define prompt template for summarization
-    prompt = """Answer the user question below given the following relational information..."""
-    [Rest of prompt string...]
-    
+    prompt = """Answer the user question below given the following relational information in XML format. Use as much as the query response as possible to give a full, detailed explanation. Interpret the URI and predicate information using context. Don't use phrases like 'the entity identified by the URI,' just say what the entity is.
+    Also make sure the output is readable in a format that can be display through an HTML file, add appropriate formatting.
+    Please remove unnecessary information. Do not add information about the triples. Do not add the source of the data.
+    Do not include details about what they are identified as or what kind of entity they are unless asked. Do not add any suggestions unless explicitly asked. Simply give a crisp and direct answer to what has been asked!
+    If you do not have an answer, please say so. DO NOT HALLUCINATE!
+    User Question: {question}
+    Information: {information}
+    """    
     # Create prompt template
     summarize = PromptTemplate.from_template(prompt)
     
