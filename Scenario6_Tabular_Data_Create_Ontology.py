@@ -1,4 +1,3 @@
-#scenario7 e2e
 # Scenario6: In this scenario, we are planning to build KGs for Tabular Data.
 # We are using SFLIGHT Schema tables(SBOOK, SCUSTOM) and build an Ontology. This will basically provide 
 # semantic relation between these tables, join conditions, columns used etc. This information will help 
