@@ -6,7 +6,6 @@
 import os
 from langchain_core.language_models.base import BaseLanguageModel  # Base class for language models
 from pydantic import BaseModel, Field  # For data validation and settings management
-import boto3  # AWS SDK for Python
 from langchain_core.prompts import PromptTemplate  # For creating prompt templates
 from typing_extensions import TypedDict, Annotated  # For type hints
 from hdbcli import dbapi  # SAP HANA database connector
