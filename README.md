@@ -8,7 +8,7 @@ THis code repository contains the python scripts for different scenarios discuss
 1. SAP Generative Hub subscription has been set up and have the AICORE tokens stored locally. If not, please follow these steps for:
    - [Initial setup](https://help.sap.com/docs/ai-launchpad/sap-ai-launchpad/initial-setup?q=generative%20ai%20hub) 
    - Setting up [roles](https://help.sap.com/docs/ai-launchpad/sap-ai-launchpad/activate-generative-ai-hub-for-sap-ai-launchpad?q=generative%20ai%20hub&locale=en-US)
-   - Please note GenAI Hub will be used only for KGE retrieval scenarios and NOT for generating KGs. In order to Generate KGs, please use Azure OpenAI(GPT4o) or Anthropic Claude(Sonnet).
+**Please note GenAI Hub will be used only for KGE retrieval scenarios and NOT for generating KGs. In order to Generate KGs, please use Azure OpenAI(GPT4o) or Anthropic Claude(Sonnet).**
    
    
 2. If you are **NOT** using GenAI Hub, you can also use set up Azure Open AI service /Open AI and execute the scripts. Please refer the "SET UP" Tiles in the Discovery      Mission for additional information.
