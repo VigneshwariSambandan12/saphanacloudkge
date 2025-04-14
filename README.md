@@ -9,7 +9,8 @@ THis code repository contains the python scripts for different scenarios discuss
    - [Initial setup](https://help.sap.com/docs/ai-launchpad/sap-ai-launchpad/initial-setup?q=generative%20ai%20hub) 
    - Setting up [roles](https://help.sap.com/docs/ai-launchpad/sap-ai-launchpad/activate-generative-ai-hub-for-sap-ai-launchpad?q=generative%20ai%20hub&locale=en-US)
 
-**Please note GenAI Hub will be used only for KGE retrieval scenarios and NOT for generating KGs. In order to Generate KGs, please use Azure OpenAI(GPT4o) or Anthropic Claude(Sonnet).**
+**Please note GenAI Hub will be used only for KGE retrieval scenarios and NOT for generating KGs. In order to Generate KGs, please subscribe to Azure OpenAI(GPT4o) or AWS Bedrock
+  (Anthropic Claude 3.7 Sonnet).**
    
    
 2. To **generate KGs, you need to set up Azure Open AI/AWS Bedrock** and execute the scripts. For additional information, please refer to the "SET UP" Tiles in the 
@@ -42,7 +43,8 @@ THis code repository contains the python scripts for different scenarios discuss
 | Scenarios | Description | GenAI Hub + SAP HANA Cloud  |  AzureOpenAI/Open AI +SAP HANA Cloud
 | :---         |     :---:      |          ---: |           ---:
 | Scenario1    | Transform unstructured PDF documents into semantic knowledge graphs using Python with Azure OpenAI's GPT-4o. The process extracts entities and relationships from documents, converts them to RDF triples, and visualizes the semantic connections between concepts in the original content.|    | X
-| Scenario2     | Utilizing Python, retrieve the reviews from either the Document Store or the table. Subsequently, employ the embedding models from SAP Generative AI Hub to embed these reviews. Finally, using the langchain plugin provided by SAP, ingest the embedded reviews into the SAP HANA Cloud. | X     |
+| Scenario2     |Continuing from Scenario 1's triple generation, we'll now load these semantic triples into SAP HANA Cloud using SPARQL. Once imported, you can view and interact with the triples directly through the Database Explorer interface.
+ |     |
 | Scenario3    | Using Python, extract the reviews from the Document Store or the specified table. Apply the embedding models from Azure Open AI/Open AI to process these reviews. Once processed, use the langchain plugin provided by SAP to ingest the embeddings into the SAP HANA Cloud.|    |  X
 | Scenario4    | Utilizing Python, retrieve the reviews from either the Document Store or the table. Subsequently, employ the embedding models from SAP Generative AI Hub to embed these reviews. Finally, using the standard langchain interface, ingest the embedded reviews into the SAP HANA Cloud.|  X  |  
 | Scenario5   | Execute a Python script that performs a similarity search to verify the ingested data. This script uses the large language models from SAP Generative AI Hub and checks the user prompt in the SAP HANA Cloud.|   X |  
