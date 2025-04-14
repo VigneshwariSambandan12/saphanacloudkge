@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/1c3289ef-9fdc-4e26-9572-fb738c61b9b1)# SAP HANACloud Knowledge Graph Engine(KGE)#
+![image](https://github.com/user-attachments/assets/1c3289ef-9fdc-4e26-9572-fb738c61b9b1) #SAP HANACloud Knowledge Graph Engine(KGE)
 The shared code repository contains the Python scripts for different scenarios discussed in Discovery Mission "Building Intelligent Data Applications with SAP HANA Cloud Knowledge Graphs"
 
 # KGE_Mission
