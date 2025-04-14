@@ -40,7 +40,7 @@ THis code repository contains the python scripts for different scenarios discuss
 3. For Scenario 7 which is the CAP app for RAG based, the code is provided both for how to execute using GenAI Hub or Azure OpenAI.
 
 
-| Scenarios | Description | GenAI Hub + SAP HANA Cloud  |  AzureOpenAI/Open AI +SAP HANA Cloud
+| Scenarios | Description | GenAI Hub + SAP HANA Cloud  |  AzureOpenAI/Open AI +SAP HANA Cloud | SAP HANA Cloud 
 | :---         |     :---:      |          ---: |           ---:
 | Scenario1    | Transform unstructured PDF documents into semantic knowledge graphs using Python with Azure OpenAI's GPT-4o. The process extracts entities and relationships from documents, converts them to RDF triples, and visualizes the semantic connections between concepts in the original content.|    | X
 | Scenario2     |Continuing from Scenario 1's triple generation, we'll now load these semantic triples into SAP HANA Cloud using SPARQL. Once imported, you can view and interact with the triples directly through the Database Explorer interface.
