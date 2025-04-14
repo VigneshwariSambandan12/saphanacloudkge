@@ -1,18 +1,19 @@
 # SAP HANACloud Knowledge Graph Engine(KGE)
-THis code repository contains the python scripts for different scenarios discussed in Discovery Mission "Building Intelligent Data Applications with SAP HANA Cloud Knowledge Graphs"
+The shared code repository contains the Python scripts for different scenarios discussed in Discovery Mission "Building Intelligent Data Applications with SAP HANA Cloud Knowledge Graphs"
 
 # KGE_Mission
 
 **Pre-requisites:**
 
-1. SAP Generative Hub subscription has been set up and have the AICORE tokens stored locally. If not, please follow these steps for:
+1. SAP Generative Hub subscription has been set up, and the AICORE tokens are stored locally. If not, please follow these steps for:
    - [Initial setup](https://help.sap.com/docs/ai-launchpad/sap-ai-launchpad/initial-setup?q=generative%20ai%20hub) 
    - Setting up [roles](https://help.sap.com/docs/ai-launchpad/sap-ai-launchpad/activate-generative-ai-hub-for-sap-ai-launchpad?q=generative%20ai%20hub&locale=en-US)
 
 **Please note GenAI Hub will be used only for KGE retrieval scenarios and NOT for generating KGs. In order to Generate KGs, please use Azure OpenAI(GPT4o) or Anthropic Claude(Sonnet).**
    
    
-2. If you are **NOT** using GenAI Hub, you can also use set up Azure Open AI service /Open AI and execute the scripts. Please refer the "SET UP" Tiles in the Discovery      Mission for additional information.
+2. To generate KGs, you need to set up Azure Open AI and AWS Bedrock and execute the scripts. For additional information, please refer to the "SET UP" Tiles in the 
+   Discovery Mission.
                      
 3. SAP HANA CLoud Instance has been set up by following these [steps](https://developers.sap.com/tutorials/hana-cloud-deploying.html).
 
