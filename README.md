@@ -35,9 +35,10 @@ THis code repository contains the python scripts for different scenarios discuss
 
 **Executing the Python Scripts**
            
-1. There are 6 scenarios for python scripts provided as mentioned in the Implementation Review of the Discovery Mission. For executing scenarios [1,2,4,5], you need to setup up SAP HANA Cloud and SAP GenAI HuB
-2. For executing scenarios 3 and 6, you need to setup up SAP HANA Cloud and Azure OpenAI/OpenAI
-3. For Scenario 7 which is the CAP app for RAG based, the code is provided both for how to execute using GenAI Hub or Azure OpenAI.
+1. There are 7 scenarios for python scripts provided as mentioned in the Implementation Review of the Discovery Mission. For executing scenarios [1 to 4], you need to set up SAP HANA Cloud and would require 
+   subscription for Azure OpenAI/AWS Bedrock. 
+2. For executing scenarios 5, you would need subscription for SAP GenAI Hub and deploy the OpenAI GPT-4o model. Scenarios 1 to 5 are related to building and retrieving KGs for unstructured data.
+3. Scenario 6,7 is related to KGs for tabular data.
 
 
 | Scenarios | Description | GenAI Hub  |  AzureOpenAI/AWS Bedrock | SAP HANA Cloud 
@@ -48,13 +49,4 @@ THis code repository contains the python scripts for different scenarios discuss
 | Scenario4    | Query semantic triples in SAP HANA Cloud using natural language. The system converts user queries into SPARQL commands, executes them against the database, and enhances results through Anthropic Claude (AWS Bedrock) processing before presenting refined insights to business users.|   |  X | 
 | Scenario5   | Query semantic triples in SAP HANA Cloud using natural language. The system converts user queries into SPARQL commands, executes them against the database, and enhances results through GenAI Hub(Anthropic Claude)processing before presenting refined insights to business users| X |  | 
 | Scenario6   | In this scenario, we process Tabular KGs.We process tabular data from SFLIGHT schema's SBOOK and SCUSTOM tables by generating a semantic ontology in turtle(ttl) format. The generated ttl file is ingested as KG in SAP HANA Cloud. We have also provide the code to load the ttl file in to S3 Cloud Storage using Python.And to load the file from S3 into SAP HANA Cloud using Import from DB Explorer. This approach can be extended to Calculative Views metadata or OData structures for advanced scenarios.|    |  | X
-| Scenario7    | Retrieval augmented generation (RAG) Application based on SAP CAP to test ingested data from Scenarios 1-4|  X  |  X
-
-
-
-
-4. Please make sure you have access to Large Language Models(LLM) either through 1.GenAI Hub or 2.Azure OpenAI or 3.OpenAI.
-5. In order to set up the LLM access, please refer the SetUp section of the mission.
-6. Please make sure you import the schema provided as part of the mission. It is available as part of SetUp section under the tile "Setup Data Access for Embedding"
-7. Once the SAP HANA Cloud, access to LLM, and Schema, you can execute the scripts seamlessly. 
-
+| Scenario7    | In this scenario, we prompt the ingested KGs for tabular data. The user prompts is converted into structured SPARQL that identifies relevant tables and joins, dynamically generating SQL for execution. Results are then processed through Anthropic Claude(AWS Bedrock or GenAI Hub)to deliver refined, business-ready insights from complex database information.|  X  |  X | 
