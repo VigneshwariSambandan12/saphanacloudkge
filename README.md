@@ -12,12 +12,12 @@ The shared code repository contains the Python scripts for different scenarios d
 **Please note GenAI Hub will be used only for KGE retrieval scenarios and NOT for generating KGs. In order to Generate KGs, please use Azure OpenAI(GPT4o) or Anthropic Claude(Sonnet).**
    
    
-2. To generate KGs, you need to set up Azure Open AI and AWS Bedrock and execute the scripts. For additional information, please refer to the "SET UP" Tiles in the 
+2. To **generate KGs, you need to set up Azure Open AI/AWS Bedrock** and execute the scripts. For additional information, please refer to the "SET UP" Tiles in the 
    Discovery Mission.
                      
 3. SAP HANA CLoud Instance has been set up by following these [steps](https://developers.sap.com/tutorials/hana-cloud-deploying.html).
 
-4. Local local python environment has been set up or use [Google Colabs](https://colab.research.google.com/) to execute the python scripts.
+4. All the Python scripts have been validated using Google Collabs. Either set up local python environment has been set up or use [Google Colabs](https://colab.research.google.com/) to execute the python scripts. **If you are using Visual Studio or your local Python environments, please make sure you set up a separate virtual environment as the necessary packages might conflict with existing installed version**
 5. Install the Python Package for [Generative AI Hub - SDK](https://pypi.org/project/generative-ai-hub-sdk/). Additional Python packages include "hdbcli", "hana_ml",        "datetime", "tiktoken", "python-dotenv", "shapely".
 6. If you are using GenAI hub, configure the ai-core-sdk using the ai-core instance keys. If you are using Microsoft Visual Studio, then you can execute "aicore            configure" from terminal. Incase you are using Google Colab, you can set up using 
 * os.environ['AICORE_AUTH_URL'] = 'https://*************.authentication.eu10.hana.ondemand.com'
