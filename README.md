@@ -1,4 +1,4 @@
-# SAP HANACloud Knowledge Graph Engine(KGE)
+![image](https://github.com/user-attachments/assets/1c3289ef-9fdc-4e26-9572-fb738c61b9b1)# SAP HANACloud Knowledge Graph Engine(KGE)
 The shared code repository contains the Python scripts for different scenarios discussed in Discovery Mission "Building Intelligent Data Applications with SAP HANA Cloud Knowledge Graphs"
 
 # KGE_Mission
@@ -17,8 +17,8 @@ The shared code repository contains the Python scripts for different scenarios d
                      
 3. SAP HANA CLoud Instance has been set up by following these [steps](https://developers.sap.com/tutorials/hana-cloud-deploying.html).
 
-4. All the Python scripts have been validated using Google Collabs. Either set up local python environment has been set up or use [Google Colabs](https://colab.research.google.com/) to execute the python scripts. **If you are using Visual Studio or your local Python environments, please make sure you set up a separate virtual environment as the necessary packages might conflict with existing installed version**
-5. Install the Python Package for [Generative AI Hub - SDK](https://pypi.org/project/generative-ai-hub-sdk/). Additional Python packages include "hdbcli", "hana_ml",        "datetime", "tiktoken", "python-dotenv", "shapely".
+4. All the Python scripts have been validated using Google Colabs. Either set up local python environment has been set up or use [Google Colabs](https://colab.research.google.com/) to execute the python scripts. **If you are using Visual Studio or your local Python environments, please make sure you set up a separate virtual environment as the necessary packages might conflict with existing installed version**
+5. Install the Python Package for [Generative AI Hub - SDK](https://pypi.org/project/generative-ai-hub-sdk/). 
 6. If you are using GenAI hub, configure the ai-core-sdk using the ai-core instance keys. If you are using Microsoft Visual Studio, then you can execute "aicore            configure" from terminal. Incase you are using Google Colab, you can set up using 
 * os.environ['AICORE_AUTH_URL'] = 'https://*************.authentication.eu10.hana.ondemand.com'
 * os.environ['AICORE_CLIENT_ID'] = 'sb-************************'
@@ -29,7 +29,7 @@ The shared code repository contains the Python scripts for different scenarios d
 * os.environ['HANA_VECTOR_PASS'] = 'XXXXXXXXXXXXXXX' --> Your SAP HANA Cloud password 
 * os.environ['HANA_HOST_VECTOR'] = 'XXXXXXXXXXXXXXXXXXXXX-eu10.hanacloud.ondemand.com'   --> Your SAP HANA Cloud host          
 8. Install the python packages as mentioned in the Python Scripts
-9. Setting up the .env file so you dont have to harcode the credentials for accessing SAP HANA Cloud(Optional)
+9. Setting up the .env file so you dont have to hardcode the credentials for accessing SAP HANA Cloud(Optional)
 
 
 **Executing the Python Scripts**
@@ -41,7 +41,7 @@ The shared code repository contains the Python scripts for different scenarios d
 
 | Scenarios | Description | GenAI Hub + SAP HANA Cloud  |  AzureOpenAI/Open AI +SAP HANA Cloud
 | :---         |     :---:      |          ---: |           ---:
-| Scenario1    | Using Python, extract the reviews from the Document Store or the table. Then, apply the embedding models from SAP Generative AI Hub to process these reviews. After processing, load the embeddings into  SAP HANA Cloud.|  X  | 
+| Scenario1    | Transform unstructured PDF documents into semantic knowledge graphs using Python with Azure OpenAI's GPT-4o. The process extracts entities and relationships from documents, converts them to RDF triples, and visualizes the semantic connections between concepts in the original content.|    | X
 | Scenario2     | Utilizing Python, retrieve the reviews from either the Document Store or the table. Subsequently, employ the embedding models from SAP Generative AI Hub to embed these reviews. Finally, using the langchain plugin provided by SAP, ingest the embedded reviews into the SAP HANA Cloud. | X     |
 | Scenario3    | Using Python, extract the reviews from the Document Store or the specified table. Apply the embedding models from Azure Open AI/Open AI to process these reviews. Once processed, use the langchain plugin provided by SAP to ingest the embeddings into the SAP HANA Cloud.|    |  X
 | Scenario4    | Utilizing Python, retrieve the reviews from either the Document Store or the table. Subsequently, employ the embedding models from SAP Generative AI Hub to embed these reviews. Finally, using the standard langchain interface, ingest the embedded reviews into the SAP HANA Cloud.|  X  |  
