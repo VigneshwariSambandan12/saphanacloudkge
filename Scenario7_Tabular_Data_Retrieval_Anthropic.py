@@ -1,4 +1,6 @@
-# Scenario7: In this scenario, we answer questions based on tabular data by leveraging the ontologies generated in Scenario 6
+#Scenario7: In this scenario, we answer questions based on tabular data by leveraging the ontologies generated in Scenario 6
+#please make sure you install the following packages
+#!pip install rdflib hdbcli langchain_aws langchain_core
 from xml.etree import ElementTree as ET
 from langchain_core.prompts import PromptTemplate
 from hdbcli import dbapi
