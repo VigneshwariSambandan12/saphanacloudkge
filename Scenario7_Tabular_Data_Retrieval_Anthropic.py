@@ -407,6 +407,6 @@ def process_question(question: str, conn, anthropic) -> str:
 
 
 question = "Show me all flight booking revenue for American Airlines." #TODO Add your question here
-openAI, anthropic, conn = setup()
+anthropic, conn = setup()
 answer = process_question(question, conn, anthropic)
 print(answer)
