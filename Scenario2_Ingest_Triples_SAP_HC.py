@@ -1,7 +1,7 @@
 #For Scenario2, we will consume the triples generated in Scenario1 and ingest into SAP HANA Cloud
 #Once you completion is successful, you can validate the triples from SAP HANA Cloud DB Explorer
 #please make sure you install the following packages
-# !pip install langchain_openai pypdf hdbcli install langchain_experimental pdfplumber rdflib
+# !pip install langchain_openai pypdf hdbcli langchain_experimental pdfplumber rdflib
 # Importing the Python regex module for pattern matching in text
 import re
 # Importing Document class from langchain_core for structured document representation
