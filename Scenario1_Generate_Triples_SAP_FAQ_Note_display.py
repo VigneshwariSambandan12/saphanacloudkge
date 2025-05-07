@@ -1,7 +1,7 @@
 #For Scenario1, we will consume the SAP FAQ note as mentioned in the mission, process it using graph transformers
 #convert to triples and display all the generated RDF triples
 #please make sure you install the following packages
-# !pip install langchain_openai pypdf hdbcli install langchain_experimental pdfplumber rdflib
+# !pip install langchain_openai pypdf hdbcli langchain_experimental pdfplumber rdflib
 # Importing the Python regex module for pattern matching in text
 import re
 # Importing Document class from langchain_core for structured document representation
