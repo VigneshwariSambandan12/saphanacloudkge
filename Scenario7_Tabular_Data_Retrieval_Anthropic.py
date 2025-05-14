@@ -331,10 +331,13 @@ def generate_sql(components: Dict) -> str:
     if join_clauses:
         sql += " " + " ".join(join_clauses)
     
-    if where_clause:
-        sql += f" WHERE {where_clause}"
+    if where_clause and group_by_clause:
+        sql += f" GROUP BY {group_by_clause} HAVING {where_clause}"
     
-    if group_by_clause:
+    elif where_clause:
+        sql += f" WHERE {where_clause}"
+
+    if group_by_clause and not where_clause:
         sql += f" GROUP BY {group_by_clause}"
     
     # Final formatting
